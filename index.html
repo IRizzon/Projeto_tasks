@@ -4,27 +4,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
     <main>
         <section class="landingpage">
-            <div class="welcome">
-                <h1>Seja bem vindo,</h1>
-                <span>ao seu gerenciador de tarefas!</span> 
-                <span>Aqui você consegue criar e gerenciar suas tarefas, te auxciliando a controlar sua rotina.</span>
-                <span><b>Para utilizar a nossa interface basta se cadastrar!</b></span>
+            <div class="title">
+                <h1>Gerenciador de Tarefas Online</h1>
+                <span>
+                    Para aqueles que procuram uma forma de localizar sua rotina, 
+                    controlar suas atividades, com facilidade e praticidade,
+                    aqui você consegue armazenar, editar e criar novas atividades!
+                </span>
+                <img class="logo" src="/assets/tasks_icon.png" alt="Task Logo">
             </div>
         </section>
         <section class="acess">
             <div class="acess_register">
-                <h1>Cadastre-se, é Gratuito!</h1>
-                <byrron class="button"><a href="/Register/" class="button_link">Cadastrar</a></button>
+                <h1>Teste Já!</h1>
+                <form>
+                    <div class="contain">
+                        <label for="ilogin">Login:</label>
+                        <input class="bar" placeholder="Login" type="text" name="login" id="ilogin">
+                    </div>
+                    <div class="contain">
+                        <label for="iemail">E-mail:</label>
+                        <input class="bar" placeholder="E-mail" type="email" name="email" id="iemail">
+                    </div>
+                    <div class="contain">
+                        <label for="isenha">Senha:</label>
+                        <input class="bar" placeholder="Senha" type="password" name="senha" id="ilogin">
+                    </div>
+                    <input class="button" type="submit" name="register" value="Cadastre-se, é Gratuito!">
+                </form>
             </div>
             <div class="acess_login">
-                <h1>Já possui cadastro?</h1>
-                <button class="button"><a href="/Login/" class="button_link">Logar</a></button>
+                <h2>Já possui cadastro?</h2>
+                <button class="button2"><a href="/Login/" class="button_link">Logar</a></button>
             </div>
         </section>
     </main>
+    <section class="bonus">
+        <h1>Conheça nossa plataforma!</h1>
+        <div>
+            <div class="mini_box">
+                <img class='icon' src="/assets/prat_icon.png" alt="Praticidade">
+                <span><b>Praticidade,</b> Tenha acesso a sua agente em qualquer lugar e a qualquer momento.</span>
+            </div>
+            <div class="mini_box">
+                <img class='icon' src="/assets/grafic_icon.png" alt="Praticidade">
+                <span><b>Rendimento,</b> Faça seu dia render, melhore o controle da sua rotina.</span>
+            </div>
+            <div class="mini_box">
+                <img class='icon' src="/assets/easy_icon.png" alt="Praticidade">
+                <span><b>Facilidade,</b> Site intuitivo de fácil compreensão.</span>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

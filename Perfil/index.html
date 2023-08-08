@@ -20,7 +20,7 @@
                         <span>Home</span>
                     </span>
                 </a>
-                <a href="/Perfil/index.html" class="link">
+                <a class="link">
                     <span>
                         <i class="material-symbols-outlined">Person</i>
                         <span>Perfil</span>
@@ -36,28 +36,38 @@
         </section>
     </header>
     <main>
-        <section class="title">
-            <i class="material-symbols-outlined">Add_task</i>
-            <span>Novo Chamado</span>
+        <section>
+            <div class="title">
+                <i class="material-symbols-outlined">Person</i>
+                <span>Perfil</span>
+            </div>
         </section>
-        <section class="form_container">
-            <form>
-                <div class="form_input">
-                    <label>Data</label>
-                    <input class="date_bar" type="date" name="date" id="idate">
-                </div>
-                <div class="form_input">
-                    <label>Assunto</label>
-                    <input class="about_bar" type="text" name="about" id="iabout" placeholder="Exemplo: *Corrigir bugs no sistema de pagamento*">
-                </div>
-                <div>
-                    <label class="form_input">Descrição</label>
-                    <input name="description" id="idescription" placeholder="Escreva aqui a descrição do chamado!" class="description_bar">
-                </div>
-                <div>
-                    <input class="button" type="submit" name="save" value="Salvar">  
-                </div>
-            </form>
+        <section class="perfil">
+            <div class="svg_edit">
+                <img class="avatar2" src="/assets/avatar.png" alt="Avatar">
+                <a href="#">Alterar foto de Perfil</a>
+            </div>
+            <div>
+                <Form>
+                    <div class="user">
+                        <div class="user_box">
+                            <label>Nome: </label>
+                            <input type="text" name="name" id="iname" placeholder="Nome">
+                        </div>
+                        <div class="user_box">
+                            <label>Sobrenome: </label>
+                            <input type="text" name="sname" id="isname" placeholder="Sobrenome">
+                        </div>
+                    </div>
+                    <div class="email">
+                        <label>E-mail: </label>
+                        <input type="email" name="email" id="iemail" placeholder="E-mail">
+                    </div>
+                    <div class="button_box">
+                        <input class="button" type="submit" name="save" value="Salvar">
+                    </div>
+                </Form>
+            </div>
         </section>
     </main>
 </body>
