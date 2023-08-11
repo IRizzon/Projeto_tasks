@@ -9,16 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js"></script>
 
-    <script src="firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
 
     <title>Perfil</title>
     
 </head>
 <body>
-    <main>
+    <main id="main">
         <section class="landingpage">
             <div class="title">
                 <h1>Gerenciador de Tarefas Online</h1>
@@ -33,11 +32,7 @@
         <section class="acess">
             <div class="acess_register">
                 <h1>Teste Já!</h1>
-                <form id="submit">
-                    <div class="contain">
-                        <label for="ilogin">Login:</label>
-                        <input class="bar" placeholder="Login" type="text" name="login" id="login" required>
-                    </div>
+                <form>
                     <div class="contain">
                         <label for="iemail">E-mail:</label>
                         <input class="bar" placeholder="E-mail" type="email" name="email" id="email" required>
@@ -46,7 +41,7 @@
                         <label for="isenha">Senha:</label>
                         <input class="bar" placeholder="Senha" type="password" name="senha" id="password" required>
                     </div>
-                    <button class="button" type="submit" name="register" id="button">Cadastre-se, é Gratuito!</button>
+                    <button class="button" type="submit" name="register" id="submit">Cadastre-se, é Gratuito!</button>
                 </form>
             </div>
             <div class="acess_login">
@@ -71,6 +66,19 @@
                 <span><b>Facilidade,</b> Site intuitivo e de fácil compreensão.</span>
             </div>
         </div>
+        <div class="advantage">
+            <h1 class="title">As vantagens de se usar um Gerenciador de Tarefas</h1>
+            <span class="text">
+                Um gerenciador de tarefas oferece inúmeras vantagens para otimizar a produtividade. 
+                Ele permite a organização eficiente das tarefas, estabelecimento de prioridades e 
+                acompanhamento do progresso. A atribuição de prazos ajuda a evitar a procrastinação. 
+                Além disso, a visualização clara das atividades previstas reduz o estresse e proporciona 
+                uma sensação de controle sobre as responsabilidades. Em resumo, um gerenciador de tarefas 
+                é uma ferramenta indispensável para simplificar a vida e alcançar objetivos de forma mais eficaz.
+            </span>
+            <a class="capt" href="#">Quero usar o gerenciador de tarefas!!</a>
+        </div>
     </section>
+    <script src="script.js"></script>
 </body>
 </html>

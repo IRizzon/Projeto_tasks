@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 
     <title>New Task</title>
     
@@ -35,7 +36,7 @@
                         <span>Perfil</span>
                     </span>
                 </a>
-                <a href="../" class="link">
+                <a href="#" class="link" onclick="logoutUser()">
                     <span>
                         <i class="material-symbols-outlined">Logout</i>
                         <span>Sair</span>
@@ -50,24 +51,25 @@
             <span>Novo Chamado</span>
         </section>
         <section class="form_container">
-            <form>
+            <form id="form">
                 <div class="form_input">
                     <label>Data</label>
-                    <input class="date_bar" type="date" name="date" id="idate">
+                    <input class="date_bar" type="date" name="date" id="date">
                 </div>
                 <div class="form_input">
                     <label>Assunto</label>
-                    <input class="about_bar" type="text" name="about" id="iabout" placeholder="Exemplo: *Corrigir bugs no sistema de pagamento*">
+                    <input class="about_bar" type="text" name="about" id="about" placeholder="Exemplo: *Corrigir bugs no sistema de pagamento*">
                 </div>
                 <div>
                     <label class="form_input">Descrição</label>
-                    <input name="description" id="idescription" placeholder="Escreva aqui a descrição do chamado!" class="description_bar">
+                    <textarea rows="30" cols="10" name="description" id="description" placeholder="Escreva aqui a descrição do chamado!" class="description_bar"></textarea>
                 </div>
                 <div>
-                    <input class="button" type="submit" name="save" value="Salvar">  
+                    <input class="button" type="submit" name="save" value="Salvar" id="submitBtn">  
                 </div>
             </form>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

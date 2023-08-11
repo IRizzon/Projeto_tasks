@@ -66,7 +66,7 @@ main h1{
 }
 
 .bar{
-    padding: 0.25em;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
     border-color: #433275;
     margin: 1rem;

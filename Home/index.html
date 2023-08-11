@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
 
     <title>Perfil</title>
     
@@ -35,7 +36,7 @@
                         <span>Perfil</span>
                     </span>
                 </a>
-                <a href="../" class="link">
+                <a href="#" class="link" onclick="logoutUser()">
                     <span>
                         <i class="material-symbols-outlined">Logout</i>
                         <span>Sair</span>
@@ -67,28 +68,14 @@
                         <th scope="col">#</th>
                     </tr>
                 </thead>
-                    <tbody>
-                        <tr>
-                        <td dara-label="Data">02/08/2023</td>
-                        <td dara-label="Assunto">Estudar HML5</td>
-                        <td dara-label="Status"><span class="status">Em Aberto</span></td>
-                        <td dara-label="#">
-                            <button class="material-symbols-outlined">event_note</button>
-                            <button class="material-symbols-outlined">edit_calendar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td dara-label="Data">02/08/2023</td>
-                        <td dara-label="Assunto">Estudar JS</td>
-                        <td dara-label="Status"><span class="status">Em Aberto</span></td>
-                        <td dara-label="#">
-                            <button class="material-symbols-outlined">event_note</button>
-                            <button class="material-symbols-outlined">edit_calendar</button>
-                        </td>
-                    </tr>
-                 </tbody>
+                <tbody id="tbd">
+                    <button class="material-symbols-outlined">event_available</button>
+                    <button class="material-symbols-outlined">edit_calendar</button>
+                    <div id="tooltip" class="tooltip"></div>
+                </tbody>
             </table>
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

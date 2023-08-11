@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="script.js"></script>
 
     <title>Login</title>
     
@@ -19,14 +20,14 @@
         <h1>Seja Bem vindo!</h1>
         <form>
             <div class="contain">
-                <label for="ilogin">Login:</label>
-                <input class="bar" placeholder="Login" type="text" name="login" id="login" required>
+                <label>E-mail:</label>
+                <input class="bar" placeholder="Login" type="text" name="login" id="email" required>
             </div>
             <div class="contain">
-                <label for="isenha">Senha:</label>
+                <label>Senha:</label>
                 <input class="bar" placeholder="Senha" type="password" name="senha" id="password" required>
             </div>
-            <button class="button" type="submit" name="Entrar">Entrar</button>
+            <button class="button" type="submit" name="Entrar" id="submit">Entrar</button>
         </form>
         <div class="options_contain">
             <p><a class="link" href="#">Esqueceu sua senha?</a></p>
