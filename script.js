@@ -19,7 +19,7 @@ function storeUserData(email, password) {
     .then((register) => {
         const user = register.user;
         alert("E-mail " + user.email + " foi cadastrado com sucesso!");
-        window.location.href = "/Home/index.html";
+        window.location.href = "Home/index.html";
     })
     .catch((error) => {
         alert("Não foi possível efetuar o cadastro, por favor certifique-se de preencher os campos corretamente!");

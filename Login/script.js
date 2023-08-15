@@ -19,7 +19,7 @@ function loginUser(email, password) {
       .then((userCredential) => {
         const user = userCredential.user;
   
-        window.location.href = "/Home/index.html";
+        window.location.href = "../Home/index.html";
         
       })
       .catch((error) => {
