@@ -32,6 +32,7 @@ function populateTable(tasks) {
             <td data-label="#">
                 <button id="check-button" class="material-symbols-outlined">event_available</button>
                 <button id="edit-button" class="material-symbols-outlined">edit_calendar</button>
+                <button id="delete-button" class="material-symbols-outlined">event_busy</button>
             </td>
         `;
         if (task.id) {
@@ -41,12 +42,13 @@ function populateTable(tasks) {
         tableBody.appendChild(row);
     });
 
-    const checkButtons = document.querySelectorAll('#check-button');
-    const editButtons = document.querySelectorAll('#edit-button');
+    const checkButton = document.querySelectorAll('#check-button');
+    const editButton = document.querySelectorAll('#edit-button');
+    const deleteButton = document.querySelectorAll('#delete-button')
 
     //Botão Check
 
-    checkButtons.forEach(button => {
+    checkButton.forEach(button => {
         button.addEventListener('click', () => {
             checkTask(button);
         });
@@ -54,30 +56,40 @@ function populateTable(tasks) {
 
     //Botão mostrar Descrição
 
-    editButtons.forEach((button, index) => {
+    editButton.forEach((button, index) => {
         button.addEventListener('mouseover', async () => {
             const taskId = button.parentNode.parentNode.getAttribute('data-task-id');
             const userId = firebase.auth().currentUser.uid;
     
-            try {
-                const taskSnapshot = await firestore.collection('users').doc(userId).collection('tasks').doc(taskId).get();
-                const taskData = taskSnapshot.data();
-    
-                if (taskData) {
-                    tooltip.textContent = taskData.description;
-                    const rect = button.getBoundingClientRect();
-                    tooltip.style.left = rect.left + 'px';
-                    tooltip.style.top = rect.top - tooltip.offsetHeight + 'px';
-                    tooltip.style.display = 'block';
-                }
-            } catch (error) {
-                console.error("Erro ao obter descrição da atividade: ", error);
+            const taskSnapshot = await firestore.collection('users').doc(userId).collection('tasks').doc(taskId).get();
+            const taskData = taskSnapshot.data();
+
+            if (taskData) {
+                tooltip.textContent = taskData.description;
+                const rect = button.getBoundingClientRect();
+                tooltip.style.left = rect.left + 'px';
+                tooltip.style.top = rect.top - tooltip.offsetHeight + 'px';
+                tooltip.style.display = 'block';
             }
+        
         });
     
         button.addEventListener('mouseout', () => {
             tooltip.style.display = 'none';
         });
+
+        button.addEventListener('click', () => {
+            const taskId = button.parentNode.parentNode.getAttribute('data-task-id');
+            window.location.href = `../New/index.html?taskId=${taskId}`;
+        });
+    });
+
+    //Botão Deletar
+
+    deleteButton.forEach(button =>{
+        button.addEventListener('click', ()=>{
+            deleteTask(button);
+        })
     });
 
 }
@@ -107,8 +119,24 @@ function checkTask(button) {
             statusSpan.textContent = taskData.status;
         })
         .catch(error => {
-            console.error("Erro ao atualizar status: ", error);
+            console.error("Erro ao atualizar status: " + error);
         });
+}
+
+function deleteTask(button){
+    const row = button.parentNode.parentNode;
+    const userId = firebase.auth().currentUser.uid;
+    const taskId = row.getAttribute('data-task-id');
+
+    firestore.collection('users').doc(userId).collection('tasks').doc(taskId)
+        .delete()
+        .then(() => {
+            row.remove();
+            alert("Atividade Excluída!")
+        })
+        .catch(error => {
+            console.error("Erro ao excluir atividade: " + error);
+        })
 }
 
 //Função de autenticação da Dashboard

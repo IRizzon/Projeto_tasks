@@ -12,7 +12,7 @@ header{
     position: fixed;
     overflow: auto;
     background-color: #f6f6f6;
-    box-shadow: 1px 0px 20px #433275;
+    box-shadow: 0px 0px 10px #433275;
 }
 
 .perfil_container{
@@ -34,15 +34,14 @@ header{
     height: 10vh;
     display: block;
     object-fit: cover;
-    filter: drop-shadow(2px 2px 10px #f6f6f6);
-    -webkit-filter: drop-shadow(2px 2px 10px #f6f6f6);
+    filter: drop-shadow(0px 0px 10px #f6f6f6);
     transition: all 0.4s;
 }
 
 .avatar:hover{
     transform: scale(1.2);
     margin-bottom: 10%;
-    filter: drop-shadow(2px 2px 10px #07c7d9);
+    filter: drop-shadow(0px 0px 10px #07c7d9);
 }
 
 .main_container{
@@ -77,33 +76,6 @@ header{
     margin-left: 5%;
 }
 
-@media screen and (max-width:1000px){
-    header{
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .main_container nav{
-        display: flex;
-        float: left;
-    }
-
-    .link{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .link span{
-        margin-left: 0.5rem;
-    }
-
-    .perfil_container{
-        display: none;
-    }
-}
-
 .title{
     display: flex;
     align-items: center;
@@ -111,7 +83,7 @@ header{
     margin: 5vh 5vh 0 35vh;
     padding: 0 5vh;
     border-radius: 5em;
-    box-shadow: 2px 2px 10px #433275;
+    box-shadow: 0px 0px 10px #433275;
     font-size: 1.5rem;
     height: 2em;
     color: #433275;
@@ -119,10 +91,8 @@ header{
     gap: 2vh;
 }
 
-@media screen and (max-width: 1000px){
-    .title{
-        margin: 1rem 1rem;
-    }
+.form{
+    width: 90%;
 }
 
 .perfil{
@@ -130,12 +100,11 @@ header{
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px #433275;
+    box-shadow: 0px 0px 5px #433275;
     background: #f6f6f6;
-    margin: 5vh 40vh;
+    margin: 2em 25em;
     padding: 2rem;
     width: 70%;
-    height: 70vh;
 }
 
 .svg_edit{
@@ -173,7 +142,7 @@ header{
 }
 
 .user_box label{
-    margin-bottom: 1rem;
+    margin: 1em 0;
     font-size: 1.5rem;
     color: #433275;
     font-weight: 600;
@@ -189,7 +158,6 @@ header{
 }
 
 .email{
-    width: 100vh;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
@@ -235,10 +203,23 @@ header{
     transform: translateY(-5px);
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
+
+    header{
+        width: 25vh;
+    }
+
+    .form{
+        width: 90%;
+    }
+
+    .title{
+        width: 50%;
+    }
+
     .perfil{
-        margin: 2rem auto;
-        width: 85%;
+        margin: 2em 18em;
+        width: 60%;
     }
 
     .svg_edit{
@@ -267,6 +248,50 @@ header{
 
     .email input{
         margin-top: 1rem;
-        width: 70%;
+        width: 25em;
     }
+}
+
+@media screen and (max-width: 700px){
+    header{
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main_container nav{
+        display: flex;
+        float: left;
+    }
+
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link span{
+        margin-left: 0.5rem;
+    }
+
+    .perfil_container{
+        display: none;
+    }
+
+    .title{
+       margin:auto;
+       margin-top: 1em;
+       width: 80%;
+    }
+
+    .perfil{
+        margin:auto;
+        margin-top: 1em;
+        width: 80%;
+    }
+    
+    .email input{
+        width: 20em;
+    }
+
 }

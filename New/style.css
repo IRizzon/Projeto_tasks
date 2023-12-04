@@ -17,7 +17,7 @@ header{
     position: fixed;
     overflow: auto;
     background-color: #f6f6f6;
-    box-shadow: 1px 0px 20px #433275;
+    box-shadow: 0px 0px 10px #433275;
 }
 
 .perfil_container{
@@ -39,15 +39,14 @@ header{
     height: 10vh;
     display: block;
     object-fit: cover;
-    filter: drop-shadow(2px 2px 10px #f6f6f6);
-    -webkit-filter: drop-shadow(2px 2px 10px #f6f6f6);
+    filter: drop-shadow(0px 0px 10px #f6f6f6);
     transition: all 0.4s;
 }
 
 .avatar:hover{
     transform: scale(1.2);
     margin-bottom: 10%;
-    filter: drop-shadow(2px 2px 10px #07c7d9);
+    filter: drop-shadow(0px 0px 10px #07c7d9);
 }
 
 .main_container{
@@ -116,7 +115,7 @@ header{
     margin: 5vh 5vh 0 35vh;
     padding: 0 5vh;
     border-radius: 6em;
-    box-shadow: 2px 2px 10px #433275;
+    box-shadow: 0px 0px 10px #433275;
     font-size: 1.5rem;
     height: 2em;
     color: #433275;
@@ -134,7 +133,7 @@ header{
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    box-shadow: 0px 0px 20px #433275;
+    box-shadow: 0px 0px 5px #433275;
     background: #f6f6f6;
     margin: 5vh 45vh;
     padding: 0;

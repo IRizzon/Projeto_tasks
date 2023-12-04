@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="script.js"></script>
 
     <title>Perfil</title>
 
@@ -18,8 +19,8 @@
 <body>
     <header>
         <section class="perfil_container">
-                <a href="#" ><img class="avatar" src="../assets/avatar.png" alt="Avatar"></a>
-                <span style="margin-left: 5%;">Usuário</span>
+                <a href="#" ><img class="avatar" id="avatar" src="../assets/avatar.png" alt="Avatar"></a>
+                <span style="margin-left: 5%;" id="userName">Usuário</span>
         </section>
         <section class="main_container">
             <nav>
@@ -53,11 +54,12 @@
         </section>
         <section class="perfil">
             <div class="svg_edit">
-                <img class="avatar2" src="../assets/avatar.png" alt="Avatar">
-                <a href="#">Alterar foto de Perfil</a>
+                <img class="avatar2" id="avatarEdit" src="../assets/avatar.png" alt="Avatar">
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                <a href="#" onclick="document.getElementById('fileInput').click();">Alterar foto de Perfil</a>
             </div>
-            <div>
-                <Form>
+            <div class="form">
+                <Form id="profileForm">
                     <div class="user">
                         <div class="user_box">
                             <label>Nome: </label>
@@ -71,6 +73,10 @@
                     <div class="email">
                         <label>E-mail: </label>
                         <input type="email" name="email" id="iemail" placeholder="E-mail">
+                    </div>
+                    <div class="email">
+                        <label>Novo E-mail: </label>
+                        <input type="email" name="newEmail" id="inewemail" placeholder="Novo E-mail">
                     </div>
                     <div class="button_box">
                         <input class="button" type="submit" name="save" value="Salvar">
