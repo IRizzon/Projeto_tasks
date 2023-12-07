@@ -12,6 +12,27 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const firestore = firebase.firestore();
 
+//carregando dados do Header
+document.addEventListener('DOMContentLoaded', function() {
+    const userName = document.getElementById('userName');
+    const avatar = document.getElementById('avatar');
+
+    firebase.auth().onAuthStateChanged(function (user){
+        if(user){
+            const userId = user.uid;
+            
+            firebase.firestore().collection('users').doc(userId).get()
+                .then((doc) => {
+                    userName.textContent = doc.data().name;
+                    avatar.src = doc.data().avatar;
+                })
+                .catch((error) => {
+                    console.error("Erro ao obter dados", error)
+                });
+        }
+    });
+});
+
 //Função adicionar Task
 function saveFormData(userId, data) {
     const tasksRef = firestore.collection('users').doc(userId).collection('tasks');

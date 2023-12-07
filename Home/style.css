@@ -29,9 +29,9 @@ header{
 }
 
 .avatar{
-    padding: 5%;
-    width: 10vh;
-    height: 10vh;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     display: block;
     object-fit: cover;
     filter: drop-shadow(0px 0px 10px #f6f6f6);
@@ -76,33 +76,6 @@ header{
     margin-left: 5%;
 }
 
-@media screen and (max-width:1000px){
-    header{
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
-    .main_container nav{
-        display: flex;
-        float: left;
-    }
-
-    .link{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .link span{
-        margin-left: 0.5rem;
-    }
-
-    .perfil_container{
-        display: none;
-    }
-}
-
 .title{
     display: flex;
     align-items: center;
@@ -116,12 +89,6 @@ header{
     color: #433275;
     font-weight: bold;
     gap: 2vh;
-}
-
-@media screen and (max-width: 1000px){
-    .title{
-        margin: 1rem 1rem;
-    }
 }
 
 .new_task{
@@ -195,6 +162,9 @@ table button{
     cursor: pointer;
 }
 
+
+
+
 .tooltip {
     font-size: 1.5rem;
     position: absolute;
@@ -209,17 +179,48 @@ table button{
     transform: translateX(-20rem);
 }
 
+
 @media screen and (max-width: 1000px){
     table{
         width: 95%;
         margin: 1rem 1rem;
         border: 0;
     }
+
+    .title{
+        margin: 1rem 1rem;
+    }
+
+    table caption{
+        font-size: 1.2rem;
+    }
+
+    header{
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main_container nav{
+        display: flex;
+        float: left;
+    }
+
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link span{
+        margin-left: 0.5rem;
+    }
+
+    .perfil_container{
+        display: none;
+    }
 }
 
-table caption{
-    font-size: 1.2rem;
-}
 @media screen and (max-width: 700px){
 
     table th{

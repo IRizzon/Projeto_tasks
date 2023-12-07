@@ -11,7 +11,10 @@
     
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
     <script src="script.js"></script>
+
 
     <title>Perfil</title>
 
@@ -19,7 +22,7 @@
 <body>
     <header>
         <section class="perfil_container">
-                <a href="#" ><img class="avatar" id="avatar" src="../assets/avatar.png" alt="Avatar"></a>
+                <a href="../Perfil/index.html" ><img class="avatar" id="avatar" src="../assets/avatar.png" alt="Avatar"></a>
                 <span style="margin-left: 5%;" id="userName">Usuário</span>
         </section>
         <section class="main_container">
@@ -36,7 +39,7 @@
                         <span>Perfil</span>
                     </span>
                 </a>
-                <a href="../" class="link">
+                <a href="#" class="link" onclick="logoutUser()">
                     <span>
                         <i class="material-symbols-outlined">Logout</i>
                         <span>Sair</span>
@@ -65,10 +68,6 @@
                             <label>Nome: </label>
                             <input type="text" name="name" id="iname" placeholder="Nome">
                         </div>
-                        <div class="user_box">
-                            <label>Sobrenome: </label>
-                            <input type="text" name="sname" id="isname" placeholder="Sobrenome">
-                        </div>
                     </div>
                     <div class="email">
                         <label>E-mail: </label>
@@ -79,7 +78,7 @@
                         <input type="email" name="newEmail" id="inewemail" placeholder="Novo E-mail">
                     </div>
                     <div class="button_box">
-                        <input class="button" type="submit" name="save" value="Salvar">
+                        <input  id="saveButton" class="button" type="submit" name="save" value="Salvar">
                     </div>
                 </Form>
             </div>

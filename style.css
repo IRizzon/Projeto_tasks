@@ -163,66 +163,6 @@ main{
     text-decoration: none;
 }
 
-@media screen and (max-width: 1600px){
-    main{
-        width: 80%;
-    }
-
-    .title{
-        margin-top: 2rem;
-    }
-    
-    .title span{
-        font-size: 1.2rem;
-        text-align: justify;
-    }
-    .logo{
-        margin: 3rem auto;
-        width: 9em;
-        height: 9em;
-    }
-    
-    .contain{
-        font-size: 1.2rem;
-    }
-
-    .acess h1{
-        font-size: 1.5rem;
-    }
-    
-    .acess h2{
-        font-size: 1.2rem;
-        width: 300px;
-    }
-
-    .acess_register{
-        margin-left: 2rem;
-    }
-
-    .acess_login{
-        margin-left: 3em;
-    }
-}
-
-@media screen and (max-width: 700px){
-    main{
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
-    .acess_register{
-        margin-left: 0;
-    }
-
-    .button{
-        width: 40vh;
-    }
-
-    .acess_login{
-        margin-left: 0;
-    }
-}
-
 .bonus{
     background-color: #f6f6f6;
     color: #433275;
@@ -256,15 +196,6 @@ main{
     border-radius: 10px;
     box-shadow: 0 0 5px #433275;
     padding: 1em;
-}
-
-@media screen and (max-width: 1200px){
-    .group_box{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
 }
 
 .advantage{
@@ -305,9 +236,30 @@ main{
     transform: scale(1.1);
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width:1500px) {
+    main{
+        width:90%;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding: 2em;
+    }
+    
+    .landingpage{
+        margin-left: 0;
+        padding: 1em;
+    }
+
+    .group_box{
+        display: flex;
+        flex-direction: column;
+    }
+
     .advantage{
         width: 80%;
-        font-size: 1.5rem;
+    }
+
+    .text{
+        text-align: center;
     }
 }

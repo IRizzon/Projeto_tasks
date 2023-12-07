@@ -14,99 +14,101 @@ firebase.initializeApp(firebaseConfig);
 
 document.addEventListener('DOMContentLoaded', function() {
     const fileInput = document.getElementById('fileInput');
-    const userName = document.getElementById('userName');
-    const avatar = document.getElementById('avatar');
     const avatarEdit = document.getElementById('avatarEdit');
-    const profileForm = document.getElementById('profileForm');
+    const saveButton = document.getElementById('saveButton');
+    const avatar = document.getElementById('avatar');
+    const userName = document.getElementById('userName');
+    const name = document.getElementById('iname')
 
-    // Adiciona um ouvinte de alteração ao campo de arquivo
-    fileInput.addEventListener('change', function(event) {
-        console.log("Arquivo selecionado!");
-        const user = firebase.auth().currentUser;
-        
-        if (user) {
-            console.log("Usuário autenticado. UID: ", user.uid);
+    firebase.auth().onAuthStateChanged(function (user){
+        if(user){
             const userId = user.uid;
-            const storageRef = firebase.storage().ref(`avatars/${userId}`);
             
-            // Obtém o arquivo selecionado
-            const file = event.target.files[0];
-
-            // Atualiza o avatar no Storage
-            storageRef.put(file)
-                .then(snapshot => snapshot.ref.getDownloadURL())
-                .then(downloadURL => {
-                    // Atualiza o avatar no Firestore
-                    return firebase.firestore().collection('users').doc(userId).set({
-                        avatar: downloadURL
-                    }, { merge: true });
+            firebase.firestore().collection('users').doc(userId).get()
+                .then((doc) => {
+                    avatarEdit.src = doc.data().avatar;
+                    avatar.src = doc.data().avatar;
+                    userName.textContent = doc.data().name;
+                    name.value = doc.data().name;
                 })
-                .then(() => {
-                    // Atualiza o avatar na página
-                    avatar.src = downloadURL;
-                    avatarEdit.src = downloadURL;
-                })
-                .catch(error => {
-                    console.error("Erro ao atualizar avatar: " + error);
+                .catch((error) => {
+                    console.error("Erro ao obter dados", error)
                 });
-        } else {
-            console.error("Usuário não autenticado.");
-            // Aqui você pode adicionar uma lógica adicional ou exibir uma mensagem de erro ao usuário
         }
     });
 
+    //Selecionando foto
+    fileInput.addEventListener('change', function(event) {
+        const file = event.target.files[0];
 
-    // Adiciona um ouvinte de envio ao formulário
-    profileForm.addEventListener('submit', function(event) {
-        console.log("Formulário enviado!"); 
-        event.preventDefault();
+        if (file && (file.type === 'image/png' || file.type === 'image/jpeg')) {
+            const reader = new FileReader();
 
-        const user = firebase.auth().currentUser;
-        if (user) {
-            const userId = user.uid;
-            const name = document.getElementById('iname').value || 'Usuário';
-            const surname = document.getElementById('isname').value || '';
-            const email = document.getElementById('iemail').value || '';
-            const newEmail = document.getElementById('inewemail').value || '';
+            reader.onload = function(e) {
+                avatarEdit.src = e.target.result;
+                avatarEdit.classList.add('avatar2');
+            };
 
-            // Verifica se um novo e-mail foi fornecido
-            if (newEmail) {
-                // Atualiza o e-mail de autenticação
-                user.updateEmail(newEmail)
-                    .then(() => {
-                        // Atualiza o perfil no Firestore
-                        return firebase.firestore().collection('users').doc(userId).set({
-                            name: name,
-                            surname: surname,
-                            email: newEmail
-                        }, { merge: true });
-                    })
-                    .then(() => {
-                        // Atualiza o nome de usuário no cabeçalho
-                        userName.textContent = name;
-                        alert("E-mail atualizado com sucesso!");
-                    })
-                    .catch(error => {
-                        console.error("Erro ao atualizar perfil: " + error);
-                    });
-            } else {
-                // Se nenhum novo e-mail foi fornecido, apenas atualize outros detalhes do perfil
-                firebase.firestore().collection('users').doc(userId).set({
-                    name: name,
-                    surname: surname,
-                    email: email
-                }, { merge: true })
-                .then(() => {
-                    // Atualiza o nome de usuário no cabeçalho
-                    userName.textContent = name;
-                    alert("Perfil atualizado com sucesso!");
-                })
-                .catch(error => {
-                    console.error("Erro ao atualizar perfil: " + error);
-                });
-            }
+            reader.readAsDataURL(file);
         } else {
-            alert('Usuário não autenticado. Faça login novamente para continuar.');
+            alert('Por favor, selecione uma imagem PNG ou JPG.');
+            
         }
+    });
+
+    //console.log('Usuário atual:', firebase.auth().currentUser);
+
+    //Alterar Dados
+    saveButton.addEventListener('click', function() {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                const userId = user.uid;
+                const name = document.getElementById('iname').value;
+                const newEmail = document.getElementById('inewemail').value;
+                const email = document.getElementById('iemail').value;
+                
+                console.log('Usuário atual:', user);
+                if (name || avatarEdit.src || newEmail || email) {
+                    const dataToSave = {};
+    
+                    if (name) {
+                        dataToSave.name = name;
+                    }
+    
+                    if (avatarEdit.src) {
+                        dataToSave.avatar = avatarEdit.src;
+                    }
+                    if (newEmail) {
+                        dataToSave.newEmail = newEmail;
+                    }
+    
+                    firebase.firestore().collection('users').doc(userId).set(dataToSave, { merge: true })
+                        .then(() => {
+                            if (newEmail) {
+                                return user.updateEmail(newEmail);
+                            } else {
+                                return Promise.resolve();
+                            }
+                        })
+                        .then(() => {
+                            alert('Dados salvos com sucesso!');
+                        })
+                        .catch(error => {
+                            console.error("Erro ao salvar dados: " + error);
+                        });
+                } else {
+                    alert('Nenhuma informação para salvar. Por favor, forneça um nome e/ou uma foto.');
+                }
+            } else {
+                alert('Por favor, faça login e forneça um nome antes de salvar.');
+                console.log('Usuário atual: null');
+            }
+        });
     });
 });
+
+function logoutUser() {
+    firebase.auth().signOut().then(() => {
+        window.location.href = "../Login/index.html";
+    });
+}

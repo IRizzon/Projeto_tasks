@@ -11,16 +11,17 @@
     
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
-
+    <script src="script.js"></script>
     <title>New Task</title>
     
 </head>
 <body>
     <header>
         <section class="perfil_container">
-                <a href="#" ><img class="avatar" src="../assets/avatar.png" alt="Avatar"></a>
-                <span style="margin-left: 5%;">Usuário</span>
+            <a href="../Perfil/index.html" ><img class="avatar" id="avatar" src="../assets/avatar.png" alt="Avatar"></a>
+            <span style="margin-left: 5%;" id="userName">Usuário</span>
         </section>
         <section class="main_container">
             <nav>
@@ -70,6 +71,5 @@
             </form>
         </section>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>

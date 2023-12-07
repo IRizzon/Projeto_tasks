@@ -29,9 +29,9 @@ header{
 }
 
 .avatar{
-    padding: 5%;
-    width: 10vh;
-    height: 10vh;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     display: block;
     object-fit: cover;
     filter: drop-shadow(0px 0px 10px #f6f6f6);
@@ -129,16 +129,10 @@ header{
     color: #487ed6;
 }
 
-
-.user{
-    display: flex;
-    justify-content: space-between;
-    margin: 0 15%;
-}
-
 .user_box{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .user_box label{
@@ -150,17 +144,19 @@ header{
 
 .user_box input{
     text-align: start;
-    border: 1.2px solid #433275;
+    border: 1.8px solid #433275;
     border-radius: 5px;
     box-shadow: 0px 0px 5px #433275;
     font-size: 1rem;
-    padding: 0.5rem 1.5rem;
+    padding: 0.8rem;
+    width: 60%;
 }
 
 .email{
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .email label{
@@ -177,6 +173,7 @@ header{
     box-shadow: 0px 0px 5px #433275;
     font-size: 1rem;
     padding: 0.8rem;
+    width: 60%;
 }
 
 .button_box{
@@ -203,23 +200,50 @@ header{
     transform: translateY(-5px);
 }
 
-@media screen and (max-width: 1200px) {
+.avatar2{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 1000px) {
 
     header{
-        width: 25vh;
+        width: 100%;
+        height: auto;
+        position: relative;
     }
 
+    .main_container nav{
+        display: flex;
+        float: left;
+    }
+
+    .link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link span{
+        margin-left: 0.5rem;
+    }
+
+    .perfil_container{
+        display: none;
+    }
     .form{
         width: 90%;
     }
 
     .title{
-        width: 50%;
+        margin-left: 1.5em;
+        width: 80%;
     }
 
     .perfil{
-        margin: 2em 18em;
-        width: 60%;
+        margin: 2em;
+        width: 85%;
     }
 
     .svg_edit{
@@ -250,15 +274,19 @@ header{
         margin-top: 1rem;
         width: 25em;
     }
+
+    .user input{
+        margin-top: 1rem;
+        width: 25em;
+    }
+
+    .avatar2{
+        width: 250px;
+    }
 }
 
 @media screen and (max-width: 700px){
-    header{
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-
+    
     .main_container nav{
         display: flex;
         float: left;
@@ -291,6 +319,10 @@ header{
     }
     
     .email input{
+        width: 20em;
+    }
+
+    .user input{
         width: 20em;
     }
 
